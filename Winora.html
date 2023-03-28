@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html lang="fr">
 
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="Winora.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="Untitled-1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"-->
 
-    <script src="Winora.css"></script>
+    <script src="Untitled-1.js"></script>
 
     <title>Winora</title>
 </head>
@@ -17,97 +23,102 @@
 
 <body>
 
-                                                        <!-- le header du site -->
+<!-- Header -->
 
-    <header>
-        <a href="#" class="logo"><i class="fas-fa-untensils"></i>Winora</a>
+    <div class="header">
+        <a href="#" class="logo">Winora</a>
             <nav class="navbar">
                 <a href="#home">Accueil</a>
-                <a href="#options">Options</a>
+                <a href="#options">Fonctionnalités</a>
             </nav>
-
+        
         <div class="icons">
-            <i href="Connection.html" class="fa-solid fa-user"></i>
-            <!--<i class="fa-solid fa-right-to-bracket"></i>-->                <!-- icons adresse : https://fontawesome.com/icons/user?s=solid&f=classic  --> 
-        </div>
-    </header>
-
-
-
-
-
-
-                                                        <!-- contenu page accueil  -->
-
-
-
-<!-- Page en haut -->
-
-
-<section class="home" id="home">
-    <div class="home-slider">
-        <div class="wrapper">
-            <div class="slide">
-                <div class="content">
-                    <h3>Bienvenu</h3>
-                    <p>Démuni des doubles ressources du calcul et de la misère. Crâne bateau, imais mieux aller courir.</p>
-                    <a href="#" class="btn">FAIRE LE TEST</a>
-                </div>
-
-                <div class="image">
-                    <img src="https://assets.codepen.io/6093409/sprocket.svg">
-                </div>
-            </div>
+            <i class="fa-solid fa-user"></i>
         </div>
     </div>
-</section>
+
+<br>  
+<!-- Header météo -->
 
 
-
-
-<!-- Page en bas  -->
-
-
-<section class="options" id="options">
-
-    <h3 class="sub-heading"> Nos services </h3>
-    <h1 class="heading"> Fonctionnalités </h1>
-
-    <div class="box-container">
-
-        
-        <div class="box">
-            <img src="https://assets.codepen.io/6093409/sprocket.svg" alt="">
-            <h3>Actualités</h3>
-            <div class="stars">
-                <i class="fa-solid fa-newspaper"></i>
-            </div>
-            <a href="#" class="btn">GO</a>
+    <div class="meteo">
+        <div class="pays">
+            <span id="pays1"></span>   
+            <span id="pays2"></span>
         </div>
 
-
-
-        <div class="box">
-            <img src="https://assets.codepen.io/6093409/sprocket.svg">
-            <h3>Simulation</h3>
-            <div class="stars">
-                <i class="fa-solid fa-cloud"></i>
-            </div>
-            <a href="#" class="btn">GO</a>
+        <div id="recherche" class="classrecherche">
+            <input id="entre" type="search" class="form-control" placeholder="Enter une ville">
+            <i type="submit" class="fa-solid fa-magnifying-glass" onclick="gettemperature1()"></i>
         </div>
+    </div>
 
 
 
-        <div class="box">
-            <img src="https://assets.codepen.io/6093409/sprocket.svg">
-            <h3>Agir</h3>
-            <div class="stars">
-                <i class="fa-solid fa-hand"></i>
+
+    <section class="home" id="home">
+        <div class="home-slider">
+            <div class="wrapper">
+                <div class="slide">
+                    <div class="content">
+                        <h3>Bienvenu</h3>
+                        <p>Démuni des doubles ressources du calcul et de la misère. Crâne bateau, imais mieux aller courir.</p>
+                        <a href="#" class="btn">FAIRE LE TEST</a>
+                    </div>
+    
+                    <div class="image">
+                        <img src="smartphone-rendu-3d-dans-mains-noires-doigt.jpg">
+                    </div>
+                </div>
             </div>
-            <a href="#" class="btn">GO</a>
         </div>
+    </section>
 
-</section>
+
+
+    <section class="options" id="options">
+
+        <h3 class="sub-heading"> Nos services </h3>
+        <h1 class="heading"> Fonctionnalités </h1>
+    
+        <div class="box-container">
+    
+            
+            <div class="box">
+                <img src="news.jpg">
+                <h3>Actualités</h3>
+                <div class="stars">
+                    <i class="fa-solid fa-hand-point-down fa-beat"></i>
+                </div>
+                <a href="#" class="btn">GO</a>
+            </div>
+    
+    
+    
+            <div class="box">
+                <img src="simulation.jpg">
+                <h3>Simulation</h3>
+                <div class="stars">
+                    <i class="fa-solid fa-hand-point-down fa-beat"></i>
+                </div>
+                <a href="#" class="btn">GO</a>
+            </div>
+    
+    
+    
+            <div class="box">
+                <img src="agir.jpg">
+                <h3>Agir</h3>
+                <div class="stars">
+                    <i class="fa-solid fa-hand-point-down fa-beat"></i>
+                </div>
+                <a href="#" class="btn">GO</a>
+            </div>
+
+    <br>
+    <br>
+    
+    </section>
 
 
 </body>
