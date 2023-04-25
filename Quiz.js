@@ -4,6 +4,8 @@ document.querySelector('.btn').addEventListener('click', function() {
 
 
 
+
+
 (function () {
   var carouselTransition, carouselContent, carouselIndex, carouselLength, firstClone, firstItem, isAnimating, itemWidth, lastClone, lastItem;
   carouselTransition = 250;
