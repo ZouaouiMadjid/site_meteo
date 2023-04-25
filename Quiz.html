@@ -6,6 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>Winora Quiz</title>
+
+
     <link rel="stylesheet" href="style.css">
     <link rel='stylesheet' href='https://tenable.com/css/style.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />    
@@ -13,7 +24,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
-    <title>Winora Quiz</title>, 
+    
 </head>
 
 
@@ -68,15 +79,15 @@
   <p class="carousel--title carousel--title--sub">How many employees in your organization?</p>
   <span class="carousel--radios">
       <div class="radio-item">
-        <input id="c100" data-text="100 - 1,000" data-value="100-1,000" name="size" type="radio" value="0">
+        <input id="c100" class="buttonQ" data-text="100 - 1,000" data-value="100-1,000" name="size" type="radio" value="0">
         <label for="c100">100 - 1,000</label>
       </div>
       <div class="radio-item">
-        <input id="c1000" data-text="1,001 - 5,000" data-value="1,001-5000" name="size" type="radio" value="1">
+        <input id="c1000" class="buttonQ" data-text="1,001 - 5,000" data-value="1,001-5000" name="size" type="radio" value="1">
         <label for="c1000">1,001-5000</label>
       </div>
       <div class="radio-item">
-        <input id="c5000" data-text=">5,000" data-value="5,000+" name="size" type="radio" value="2">
+        <input id="c5000" class="buttonQ" data-text=">5,000" data-value="5,000+" name="size" type="radio" value="2">
         <label for="c5000">&gt;5,000</label>
       </div>
     </span>
@@ -95,25 +106,31 @@
         <label for="q1yes">Yes</label>
       </div>
       <div class="radio-item">
-        <input id="q1no" data-text="No" name="q1" type="radio">
+        <input id="q1no" class="questions" data-text="No" name="q1" type="radio">
         <label for="q1no">No</label>
       </div>
     </span>
 </div>
+
+
 <div class="carousel--item violet" style="width: 5.55556%;">
   <p class="carousel--title">Question 2</p>
   <p class="carousel--title carousel--title--sub">Does your organization have automated controls to differentiate between authorized and unauthorized systems and devices?</p>
-  <span class="carousel--radios">
+  
+    <span class="carousel--radios">
       <div class="radio-item">
         <input id="q2yes" class="questions" data-text="Yes" name="q2" type="radio">
         <label for="q2yes">Yes</label>
       </div>
       <div class="radio-item">
-        <input id="q2no" data-text="No" name="q2" type="radio">
+        <input id="q2no" class="questions" data-text="No" name="q2" type="radio">
         <label for="q2no">No</label>
       </div>
     </span>
+
 </div>
+
+
 <div class="carousel--item violet" style="width: 5.55556%;">
   <p class="carousel--title">Question 3</p>
   <p class="carousel--title carousel--title--sub">Does your organization have automated controls to allow only authorized systems and devices to connect to the network?</p>
@@ -123,7 +140,7 @@
         <label for="q3yes">Yes</label>
       </div>
       <div class="radio-item">
-        <input id="q3no" data-text="No" name="q3" type="radio">
+        <input id="q3no" class="questions" data-text="No" name="q3" type="radio">
         <label for="q3no">No</label>
       </div>
     </span>
@@ -138,7 +155,7 @@
         <label for="q4yes">Yes</label>
       </div>
       <div class="radio-item">
-        <input id="q4no" data-text="No" name="q4" type="radio">
+        <input id="q4no" class="questions" data-text="No" name="q4" type="radio">
         <label for="q4no">No</label>
       </div>
     </span>
@@ -152,7 +169,7 @@
         <label for="q5yes">Yes</label>
       </div>
       <div class="radio-item">
-        <input id="q5no" data-text="No" name="q5" type="radio">
+        <input id="q5no" class="questions" data-text="No" name="q5" type="radio">
         <label for="q5no">No</label>
       </div>
     </span>
@@ -166,7 +183,7 @@
         <label for="q6yes">Yes</label>
       </div>
       <div class="radio-item">
-        <input id="q6no" data-text="No" name="q6" type="radio">
+        <input id="q6no" class="questions" data-text="No" name="q6" type="radio">
         <label for="q6no">No</label>
       </div>
     </span>
@@ -180,7 +197,7 @@
         <label for="q7yes">Yes</label>
       </div>
       <div class="radio-item">
-        <input id="q7no" data-text="No" name="q7" type="radio">
+        <input id="q7no" class="questions" data-text="No" name="q7" type="radio">
         <label for="q7no">No</label>
       </div>
     </span>
@@ -195,7 +212,7 @@
         <label for="q8yes">Yes</label>
       </div>
       <div class="radio-item">
-        <input id="q8no" data-text="No" name="q8" type="radio">
+        <input id="q8no" class="questions" data-text="No" name="q8" type="radio">
         <label for="q8no">No</label>
       </div>
     </span>
@@ -209,7 +226,7 @@
         <label for="q9yes">Yes</label>
       </div>
       <div class="radio-item">
-        <input id="q9no" data-text="No" name="q9" type="radio">
+        <input id="q9no" class="questions" data-text="No" name="q9" type="radio">
         <label for="q9no">No</label>
       </div>
     </span>
@@ -223,7 +240,7 @@
         <label for="q10yes">Yes</label>
       </div>
       <div class="radio-item">
-        <input id="q10no" data-text="No" name="q10" type="radio">
+        <input id="q10no" class="questions" data-text="No" name="q10" type="radio">
         <label for="q10no">No</label>
       </div>
     </span>
@@ -237,7 +254,7 @@
         <label for="q11yes">Yes</label>
       </div>
       <div class="radio-item">
-        <input id="q11no" data-text="No" name="q11" type="radio">
+        <input id="q11no" class="questions" data-text="No" name="q11" type="radio">
         <label for="q11no">No</label>
       </div>
     </span>
@@ -251,7 +268,7 @@
         <label for="q12yes">Yes</label>
       </div>
       <div class="radio-item">
-        <input id="q12no" data-text="No" name="q12" type="radio">
+        <input id="q12no" class="questions" data-text="No" name="q12" type="radio">
         <label for="q12no">No</label>
       </div>
     </span>
@@ -266,7 +283,7 @@
         <label for="q13yes">Yes</label>
       </div>
       <div class="radio-item">
-        <input id="q13no" data-text="No" name="q13" type="radio">
+        <input id="q13no" class="questions" data-text="No" name="q13" type="radio">
         <label for="q13no">No</label>
       </div>
     </span>
@@ -281,7 +298,7 @@
         <label for="q14yes">Yes</label>
       </div>
       <div class="radio-item">
-        <input id="q14no" data-text="No" name="q14" type="radio">
+        <input id="q14no" class="questions" data-text="No" name="q14" type="radio">
         <label for="q14no">No</label>
       </div>
     </span>
@@ -296,7 +313,7 @@
         <label for="q15yes">Yes</label>
       </div>
       <div class="radio-item">
-        <input id="q15no" data-text="No" name="q15" type="radio">
+        <input id="q15no" class="questions" data-text="No" name="q15" type="radio">
         <label for="q15no">No</label>
       </div>
     </span>
@@ -306,9 +323,9 @@
 
 
 <div class="carousel--item" style="width: 5.55556%;">
-  <p class="carousel--title">Automated Controls Comparison</p>
-  <div class="btn btn-primary carousel--btn" onclick="calc_results(this);">
-    Calculer vos résultats
+  <p class="carousel--title">Résulats</p>
+  <div class="btn2" onclick="calc_results(this);">
+    <i class="fa-solid fa-play"></i>
   </div>
 </div>
 </div>
@@ -321,12 +338,9 @@
   <a class="nav--buttons nav--buttons--left" href="#" style="display: none;"><i class="fa-solid fa-arrow-left"></i></a><a class="nav--buttons nav--buttons--right" href="#" style="display: none;"><i class="fa-solid fa-arrow-right"></i></a>
 </div>
 
-
-
 </div>
 </div>
 </section>
-
 
 
 <section class="row gray pad textcenter" id="auto-con-calc" style="display: none;"></section>
