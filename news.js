@@ -1,20 +1,61 @@
-let breakingImg = document.querySelector('#breakingImg')
+async function getNews() {
+    await fetch('https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=yMvLLRebwDnGcG44GT6poqnpkDAttfJS')
+      .then(d => d.json())
+      .then(response => {
+        console.log(response.results);
+  
+        const topNews = document.getElementById('topNews');
+  
+        for (var i = 0; i < response.results.length; i++) {
+          const title = response.results[i].title;
+          const abstract = response.results[i].abstract;
+          const imageUrl = response.results[i]['media'][0]['media-metadata'][2].url;
+          const imageCaption = response.results[i]['media'][0].caption;
+  
+          const newsItem = document.createElement('div');
+          newsItem.classList.add('news');
+  
+          const newsImg = document.createElement('div');
+          newsImg.classList.add('img');
+          newsImg.innerHTML = `<img src="${imageUrl}" class="card-img-top" alt="${imageCaption}" title="${imageCaption}">`;
+  
+          const newsText = document.createElement('div');
+          newsText.classList.add('text');
+  
+          const newsTitle = document.createElement('div');
+          newsTitle.classList.add('title');
+          newsTitle.innerHTML = `<h3>${title}</h3>`;
+  
+          const newsDescription = document.createElement('div');
+          newsDescription.classList.add('description');
+          newsDescription.innerHTML = `<p>${abstract}</p>`;
+  
+          newsText.appendChild(newsTitle);
+          newsText.appendChild(newsDescription);
+  
+          newsItem.appendChild(newsImg);
+          newsItem.appendChild(newsText);
+  
+          topNews.appendChild(newsItem);
+  
+          if (i == 0) {
+            const breakingImg = document.getElementById('breakingImg');
+            breakingImg.innerHTML = `<img src="${imageUrl}" class="card-img-top" alt="${imageCaption}" title="${imageCaption}">`;
+  
+            const breakingNewsTitle = document.getElementById('breakingNews').querySelector('.title h2');
+            breakingNewsTitle.textContent = title;
+  
+            const breakingNewsDescription = document.getElementById('breakingNews').querySelector('.description p');
+            breakingNewsDescription.textContent = abstract;
+          }
+        }
+  
+        document.getElementById('title').innerHTML = response.title;
+      })
+  }
+  
+  getNews();
 
-const apiKey = "b199fee65e6f4f3e8e04d133c9279ef8"
+  
 
-const fetchData = async (category,pageSize)=>{
-    const url = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&pageSize=${pageSize}&apiKey=${apiKey}`
-    const data = await fetch(url)
-    const response = await data.json()
-    console.log(response);
-    return response.articles
-}
-//fetchData('general',5)
-
-
-
-const add_breakingNews = (data)=>{
-    breakingImg.innerHTML = `<img src=${data[0].urlToImage} alt="image">`
-}
-fetchData('general',5).then(add_breakingNews)
-
+  
