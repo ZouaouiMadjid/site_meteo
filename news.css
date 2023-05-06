@@ -226,10 +226,10 @@ body{
 .topHeadlines .right .topNews .news text{
     margin-inline: 10px;
 }
-.topHeadlines .right .topNews .news .text .title{
+.topHeadlines .right .topNews .news .text .title h3{
     cursor: pointer;
 }
-.topHeadlines .right .topNews .news .text .title:hover{
+.topHeadlines .right .topNews .news .text .title h3:hover{
     text-decoration: underline;
 }
 
