@@ -79,8 +79,8 @@ var results = [
   ["35", "40", "45"],     // 0
   /*["6.8", "45", "61"], // 0 Réponse : Combien de personnes vivent dans votre foyer ? */
   ["4.4", "5.3", "0"],     // 1 Réponse : Je possède une voiture ou j'utilise régulièrement des transports en commun
-  ["2.5", "2.6", "2.2"],   // 2 Réponse : J'ai acheté un appareil électronique neuf récemment
   /*["15.2", "18.0", "20.8"], // 2 Réponse : Utilisez-vous un lave-vaisselle et/ou un lave-linge économe en eau et en énergie ?*/
+  ["2.5", "2.6", "2.2"],   // 2 Réponse : J'ai acheté un appareil électronique neuf récemment
   ["5.5", "3.1", "3.3"],   // 3 Réponse : Je consomme de la viande ou des produits laitiers tous les jours
   ["3.2", "5.7", "2.1"],   // 4 Réponse : J'ai récemment changé mon système de chauffage ou d'eau chaude
   ["2.8", "5.2", "2.8"],   // 5 Réponse : J'ai récemment rénové ou agrandi ma maison
@@ -137,15 +137,15 @@ function calc_results(button_elem) {
   resultsText += '<div class="flex-grid mb">';
   resultsText += '<div class="flex-two flex-fewer">';
   resultsText = resultsText + '<p style="margin: 0; font-size: 4em;">' + less + "%" + '</p>';
-  resultsText += '<p style="margin: 0;text-transform: none;">des personnes avec un foyer de taille similaire ont effectué <strong>moins</strong> de tâches</p>';
+  resultsText += '<p style="margin: 0;text-transform: none;">des personnes vivant dans un foyer de taille similaire ont repondu favorablement à <strong>moins</strong> de questions</p>';
   resultsText += '</div>';
   resultsText += '<div class="flex-two flex-same">';
   resultsText = resultsText + '<p style="margin: 0; font-size: 5em;">' + same + "%" + '</p>';
-  resultsText += '<p style="margin: 0;text-transform: none;">des personnes avec un foyer de taille similaire ont effectué le <strong>même</strong> nombre de tâches</p>';
+  resultsText += '<p style="margin: 0;text-transform: none;">des personnes vivant dans un foyer de taille similaire ont repondu favorablement au <strong>même</strong> nombre de questions</p>';
   resultsText += '</div>';
   resultsText += '<div class="flex-two flex-more">';
   resultsText = resultsText + '<p style="margin: 0; font-size: 4em;">' + more + "%" + '</p>';
-  resultsText += '<p style="margin: 0; text-transform: none;">des personnes avec un foyer de taille similaire ont effectué <strong>plus</strong> de tâches</p>';
+  resultsText += '<p style="margin: 0; text-transform: none;">des personnes vivant dans un foyer de taille similaire ont repondu favorablement à <strong>plus</strong> de questions</p>';
   resultsText += '</div>';
   resultsText += '</div>';
   resultsText += '</div><br><br>';
