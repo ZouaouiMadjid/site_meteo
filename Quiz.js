@@ -1,4 +1,3 @@
-
 document.querySelector('.btn').addEventListener('click', function() {
   window.scrollTo(0,document.body.scrollHeight);
 });
@@ -78,12 +77,15 @@ function calc_results() {
 
 var results = [
   ["35", "40", "45"],     // 0
+  /*["6.8", "45", "61"], // 0 Réponse : Combien de personnes vivent dans votre foyer ? */
   ["4.4", "5.3", "0"],     // 1 Réponse : Je possède une voiture ou j'utilise régulièrement des transports en commun
   ["2.5", "2.6", "2.2"],   // 2 Réponse : J'ai acheté un appareil électronique neuf récemment
+  /*["15.2", "18.0", "20.8"], // 2 Réponse : Utilisez-vous un lave-vaisselle et/ou un lave-linge économe en eau et en énergie ?*/
   ["5.5", "3.1", "3.3"],   // 3 Réponse : Je consomme de la viande ou des produits laitiers tous les jours
   ["3.2", "5.7", "2.1"],   // 4 Réponse : J'ai récemment changé mon système de chauffage ou d'eau chaude
   ["2.8", "5.2", "2.8"],   // 5 Réponse : J'ai récemment rénové ou agrandi ma maison
   ["10.0", "11.0", "12.0"],// 6 Réponse : J'ai récemment voyagé en avion
+  /*["12.0", "8.0", "14.0"], // 6 Réponse : Avez-vous récemment installé des toilettes à faible débit pour économiser l'eau ? */
   ["4.5", "4.3", "5.5"],   // 7 Réponse : J'ai récemment changé mes habitudes de consommation pour réduire mon impact environnemental
   ["12.0", "8.0", "14.0"], // 8 Réponse : J'ai récemment installé des panneaux solaires ou des éoliennes chez moi
   ["1.5", "1.3", "1.5"],   // 9 Réponse : J'ai récemment remplacé des ampoules par des LED
@@ -131,7 +133,7 @@ function calc_results(button_elem) {
   resultsText += '<div class="score-slider">0%</div>';
   resultsText += '<div class="score-slider-less">0%</div>';
   resultsText += '<div class="score-slider-more">0%</div>';
-  resultsText += '</div><br><br>';
+  resultsText += '</div><br>';
   resultsText += '<div class="flex-grid mb">';
   resultsText += '<div class="flex-two flex-fewer">';
   resultsText = resultsText + '<p style="margin: 0; font-size: 4em;">' + less + "%" + '</p>';
