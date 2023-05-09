@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quiz Empreinte Carbone</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			font-size: 16px;
+			line-height: 1.5;
+		}
+		h1 {
+			text-align: center;
+		}
+		form {
+			margin: auto;
+			max-width: 600px;
+		}
+		fieldset {
+			border: none;
+			padding: 0;
+			margin: 0 0 20px 0;
+		}
+		legend {
+			font-weight: bold;
+			font-size: 1.2em;
+			margin-bottom: 10px;
+		}
+		label {
+			display: block;
+			margin-bottom: 10px;
+		}
+		input[type="radio"] {
+			margin-right: 10px;
+		}
+		input[type="submit"] {
+			background-color: #4CAF50;
+			color: white;
+			border: none;
+			padding: 10px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			margin: 20px 0;
+			cursor: pointer;
+			border-radius: 5px;
+		}
+		input[type="submit"]:hover {
+			background-color: #3E8E41;
+		}
+		#results {
+			margin-top: 20px;
+			padding: 20px;
+			background-color: #f2f2f2;
+			border-radius: 5px;
+			text-align: center;
+		}
+		#results h2 {
+			margin-top: 0;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Quiz Empreinte Carbone</h1>
+	<form id="quizForm">
+		<fieldset>
+			<legend>Question 1</legend>
+            <label>Combien de kilomètres par semaine parcourez-vous en voiture ?</label>
+			<label>
+				<input type="radio" name="q1" value="1"> Moins d'une heure
+			</label>
+			<label>
+				<input type="radio" name="q1" value="2"> Entre 1 heure et 3 heures
+			</label>
+			<label>
+				<input type="radio" name="q1" value="3"> Plus de 3 heures
+			</label>
+		</fieldset>
+		<fieldset>
+			<legend>Question 2</legend>
+			<label>Avez-vous récemment voyagé en avion ?</label>
+			<label>
+				<input type="radio" name="q2" value="1"> Oui
+			</label>
+			<label>
+				<input type="radio" name="q2" value="2"> Non
+			</label>
+		</fieldset>
+		<fieldset>
+			<legend>Question 3</legend>
+			<label>Combien de fois par semaine mangez-vous des aliments transformés ?</label>
+			<label>
+				<input type="radio" name="q3" value="1"> 1 à 2 fois par semaine
+			</label>
+			<label>
+				<input type="radio" name="q3" value="2"> 3 à 4 fois par semaine
+			</label>
+			<label>
+				<input type="radio" name="q3" value="3"> Plus de 4 fois par semaine
+			</label>
+            <br>
+            <br>
+            <legend>Question 4</legend>
+            <label for="q4">Combien de kilomètres par semaine parcourez-vous en voiture ?</label>
+                <input type="number" name="q4" id="q4" min="0" required>
+            <br>
+            <br>
+            <legend>Question 5</legend>
+            <label for="q5">Combien de fois par semaine prenez-vous les transports en commun ?</label>
+                <input type="number" name="q5" id="q5" min="0" required>
+            <br>
+            <br>
+            <legend>Question 6</legend>
+            <label for="q6">Combien de viandes rouges mangez-vous par semaine ?</label>
+                <input type="number" name="q6" id="q6" min="0" required>
+            <br>
+            <br>            
+            <legend>Question 7</legend>
+            <label for="q7">Combien de fois par semaine mangez-vous des aliments transformés ?</label>
+                <input type="number" name="q7" id="q7" min="0" required>
+            </fieldset>
+            <input type="submit" value="Calculer l'empreinte carbone">
+        </form>
+        
+        <div id="results"></div>
+
+        <script>
+			const form = document.getElementById('quizForm');
+			const resultsContainer = document.getElementById('results');
+		  
+			form.addEventListener('submit', function(event) {
+			  event.preventDefault();
+		  
+			  // récupérer les réponses
+			  const q1 = parseInt(form.querySelector('input[name="q1"]:checked').value);
+			  const q2 = parseInt(form.querySelector('input[name="q2"]:checked').value);
+			  const q3 = parseInt(form.querySelector('input[name="q3"]:checked').value);
+		  
+			  const q4 = parseInt(document.getElementById('q4').value);
+			  const q5 = parseInt(document.getElementById('q5').value);
+			  const q6 = parseInt(document.getElementById('q6').value);
+			  const q7 = parseInt(document.getElementById('q7').value);
+		  
+			  // calculer l'empreinte carbone
+			  const empreinte = q1 + q2 + q3 + q4 + q5 + q6 + q7;
+		  
+			  // afficher les résultats
+			  let message = '<h2>Résultats</h2>';
+			  message += `<p>Votre empreinte carbone est de ${empreinte} points.</p>`;
+			  if (empreinte < 4) {
+				message += '<p>Félicitations ! Vous avez une empreinte carbone faible.</p>';
+			  } else if (empreinte >= 4 && empreinte < 7) {
+				message += '<p>Votre empreinte carbone est moyenne. Vous pouvez encore faire des efforts.</p>';
+			  } else {
+				message += '<p>Votre empreinte carbone est élevée. Il est urgent d\'agir pour la réduire.</p>';
+			  }
+		  
+			  // afficher les conséquences
+			  const consequences = consequencesEmpreinteCarbone(empreinte);
+			  message += consequences;
+			  resultsContainer.innerHTML = message;
+			});
+		  
+			function consequencesEmpreinteCarbone(empreinte) {
+			  let message = '<h2>Conséquences sur le monde</h2>';
+			  if (empreinte < 4) {
+				message += '<p>Votre empreinte carbone est faible, ce qui contribue à réduire les émissions de gaz à effet de serre et donc à limiter le changement climatique.</p>';
+			  } else if (empreinte >= 4 && empreinte < 7) {
+				message += '<p>Votre empreinte carbone est moyenne. En réduisant vos émissions de gaz à effet de serre, vous pouvez aider à ralentir le changement climatique et à protéger les espèces animales et végétales menacées par le réchauffement de la planète.</p>';
+			  } else {
+				message += '<p>Votre empreinte carbone est élevée, ce qui contribue à accélérer le changement climatique et à mettre en danger de nombreuses espèces animales et végétales à travers le monde. Il est urgent d\'agir pour réduire votre empreinte carbone et protéger notre planète.</p>';
+			  }
+			  return message;
+			}
+		  </script>			
+</body>
+</html>
