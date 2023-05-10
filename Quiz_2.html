@@ -1,70 +1,146 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Quiz Empreinte Carbone</title>
+	<title>Quiz EnviroTalk - AGIR</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<style>
-		body {
-			font-family: Arial, sans-serif;
-			font-size: 16px;
-			line-height: 1.5;
-		}
-		h1 {
-			text-align: center;
-		}
-		form {
-			margin: auto;
-			max-width: 600px;
-		}
-		fieldset {
-			border: none;
-			padding: 0;
-			margin: 0 0 20px 0;
-		}
-		legend {
-			font-weight: bold;
-			font-size: 1.2em;
-			margin-bottom: 10px;
-		}
-		label {
-			display: block;
-			margin-bottom: 10px;
-		}
-		input[type="radio"] {
-			margin-right: 10px;
-		}
-		input[type="submit"] {
-			background-color: #4CAF50;
-			color: white;
-			border: none;
-			padding: 10px;
-			text-align: center;
-			text-decoration: none;
-			display: inline-block;
-			font-size: 16px;
-			margin: 20px 0;
-			cursor: pointer;
-			border-radius: 5px;
-		}
-		input[type="submit"]:hover {
-			background-color: #3E8E41;
-		}
-		#results {
-			margin-top: 20px;
-			padding: 20px;
-			background-color: #f2f2f2;
-			border-radius: 5px;
-			text-align: center;
-		}
-		#results h2 {
-			margin-top: 0;
-		}
-	</style>
+	<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Darumadrop+One&family=Ubuntu:ital,wght@0,400;1,500&display=swap');
+
+html {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-family: 'Ubuntu', sans-serif;
+  text-align: center;
+  margin: 20px 0;
+  color: white;
+  font-size: 70px;
+}
+
+form {
+  margin: auto;
+  max-width: 600px;
+  padding: 20px;
+  background-color: #e8e8e8;
+  border-radius: 5px;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+legend {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input[type="radio"] {
+  margin-right: 10px;
+}
+
+input[type="number"] {
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  display: block;
+  margin: 0 auto;
+}
+
+input[type="submit"]:hover {
+  background-color: #3E8E41;
+}
+
+#results {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #e8e8e8;
+  border-radius: 5px;
+  text-align: center;
+}
+
+#results h2 {
+  margin-top: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  animation: backgroundAnimation 4s linear infinite;
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(180deg, #89dd59, #2ea840), #4aad04;
+}
+
+@keyframes backgroundAnimation {
+  0% {
+    background-color: #89dd59;
+  }
+  50% {
+    background-color: #2ea840;
+  }
+  100% {
+    background-color: #4aad04;
+  }
+}
+
+#email {
+  display: block;
+  margin: 0 auto;
+}
+
+.center-text {
+  text-align: center;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #999;
+  border-radius: 100px;
+}
+
+    </style>
 </head>
 
 <body>
-	<h1>Quiz Empreinte Carbone</h1>
+	<h1>AGIR</h1>
 	<form id="quizForm">
 		<fieldset>
 			<legend>Question 1</legend>
@@ -122,65 +198,142 @@
             <label for="q7">Combien de fois par semaine mangez-vous des aliments transformés ?</label>
                 <input type="number" name="q7" id="q7" min="0" required>
             </fieldset>
+<br>
+			<p class="center-text">Votre adresse e-mail :</p>
+			<input type="email" id="email">
+<br>
+
+<br>
             <input type="submit" value="Calculer l'empreinte carbone">
         </form>
         
-        <div id="results"></div>
+		<div id="results"></div>
 
-
-
+		<script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
 		<script>
-  const form = document.getElementById('quizForm');
-  const resultsContainer = document.getElementById('results');
-
-  form.addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    // récupérer les réponses
-    const q1 = parseInt(form.querySelector('input[name="q1"]:checked').value);
-    const q2 = parseInt(form.querySelector('input[name="q2"]:checked').value);
-    const q3 = parseInt(form.querySelector('input[name="q3"]:checked').value);
-
-    const q4 = parseInt(document.getElementById('q4').value);
-    const q5 = parseInt(document.getElementById('q5').value);
-    const q6 = parseInt(document.getElementById('q6').value);
-    const q7 = parseInt(document.getElementById('q7').value);
-
-    // calculer l'empreinte carbone
-    const empreinte = q1 + q2 + q3 + q4 + q5 + q6 + q7;
-
-    // calculer l'empreinte carbone en kg CO2eq par semaine
-    const empreinteCarboneKg = empreinte * 0.1234; // Remplacez 0.1234 par le facteur d'émission approprié pour votre calcul
-
-    // afficher les résultats
-    let message = '<h2>Résultats</h2>';
-    message += `<p>Votre empreinte carbone est de ${empreinteCarboneKg} kg CO2eq par semaine.</p>`;
-    if (empreinte < 4) {
-      message += '<p>Félicitations ! Vous avez une empreinte carbone faible.</p>';
-    } else if (empreinte >= 4 && empreinte < 7) {
-      message += '<p>Votre empreinte carbone est moyenne. Vous pouvez encore faire des efforts.</p>';
-    } else {
-      message += '<p>Votre empreinte carbone est élevée. Il est urgent d\'agir pour la réduire.</p>';
-    }
-
-    // afficher les conséquences
-    const consequences = consequencesEmpreinteCarbone(empreinte);
-    message += consequences;
-    resultsContainer.innerHTML = message;
-  });
-
-  function consequencesEmpreinteCarbone(empreinte) {
+			(function(){
+				emailjs.init("b5GXdxlLgCg7ea5LP");
+				const form = document.getElementById('quizForm');
+				const resultsContainer = document.getElementById('results');
+	
+				form.addEventListener('submit', function(event) {
+					event.preventDefault();
+	
+					// Récupérer les réponses
+					const q1 = parseInt(form.querySelector('input[name="q1"]:checked').value);
+					const q2 = parseInt(form.querySelector('input[name="q2"]:checked').value);
+					const q3 = parseInt(form.querySelector('input[name="q3"]:checked').value);
+					const q4 = parseInt(document.getElementById('q4').value);
+					const q5 = parseInt(document.getElementById('q5').value);
+					const q6 = parseInt(document.getElementById('q6').value);
+					const q7 = parseInt(document.getElementById('q7').value);
+	
+					// Calculer l'empreinte carbone
+					const empreinte = q1 + q2 + q3 + q4 + q5 + q6 + q7;
+	
+					// Calculer l'empreinte carbone en kg CO2eq par semaine
+					const empreinteCarboneKg = empreinte * 0.1234; // Remplacez 0.1234 par le facteur d'émission approprié pour votre calcul
+	
+					// Afficher les résultats
+					let message = '<h2>Résultats</h2>';
+					message += `<p>Votre empreinte carbone est de ${empreinteCarboneKg} kg CO2eq par semaine.</p>`;
+					if (empreinte < 4) {
+						message += '<p>Félicitations ! Vous avez une empreinte carbone faible.</p>';
+					} else if (empreinte >= 4 && empreinte < 7) {
+						message += '<p>Votre empreinte carbone est moyenne. Vous pouvez encore faire des efforts.</p>';
+					} else {
+						message += '<p>Votre empreinte carbone est élevée. Il est urgent d\'agir pour la réduire.</p>';
+					}
+	
+					// Afficher les conséquences
+					const consequences = consequencesEmpreinteCarbone(empreinte);
+					message += consequences;
+					resultsContainer.innerHTML = message;
+	
+					// Envoyer l'empreinte carbone par e-mail (remplacez les valeurs par vos propres informations)
+					const email = document.getElementById('email').value;
+					sendCarbonFootprintByEmail(email, empreinteCarboneKg);
+				});
+	
+				function consequencesEmpreinteCarbone(empreinte) {
     let message = '<h2>Conséquences sur le monde</h2>';
     if (empreinte < 4) {
-      message += '<p>Votre empreinte carbone est faible, ce qui contribue à réduire les émissions de gaz à effet de serre et donc à limiter le changement climatique.</p>';
+        message += '<p>Félécitation votre empreinte carbone est faible, ce qui contribue à réduire les émissions de gaz à effet de serre et donc à limiter le changement climatique. <a href="https://rebellion.global/fr/blog/2020/08/20/reduce-your-carbon-footprint/">En savoir plus</a></p>';
+        message += '<p>Les conséquences météorologiques associées à une faible empreinte carbone peuvent inclure des températures plus stables, des précipitations régulières et une moindre probabilité d\'événements météorologiques extrêmes.</p>';
     } else if (empreinte >= 4 && empreinte < 7) {
-      message += '<p>Votre empreinte carbone est moyenne. En réduisant vos émissions de gaz à effet de serre, vous pouvez aider à ralentir le changement climatique et à protéger les espèces animales et végétales menacées par le réchauffement de la planète. <a href="https://www.mckinsey.com/capabilities/sustainability/our-insights/climate-risk-and-response-in-asia">En savoir plus</a></p>';
+        message += '<p>Votre empreinte carbone est moyenne. En réduisant vos émissions de gaz à effet de serre, vous pouvez aider à ralentir le changement climatique et à protéger les espèces animales et végétales menacées par le réchauffement de la planète. <a href="https://climate.copernicus.eu/2022-saw-record-temperatures-europe-and-across-world">En savoir plus</a></p>';
+        message += '<p>Les conséquences météorologiques associées à une empreinte carbone moyenne peuvent inclure des variations plus prononcées des températures, des précipitations irrégulières et une augmentation de la fréquence des événements météorologiques extrêmes.</p>';
     } else {
-      message += '<p>Votre empreinte carbone est élevée, ce qui contribue à accélérer le changement climatique et à mettre en danger de nombreuses espèces animales et végétales à travers le monde. Il est urgent d\'agir pour réduire votre empreinte carbone et protéger notre planète. <a href="https://public.wmo.int/en/media/press-release/state-of-climate-africa-highlights-water-stress-and-hazards">En savoir plus</a></p>';
+        message += '<p>Votre empreinte carbone est élevée, ce qui contribue à accélérer le changement climatique et à mettre en danger de nombreuses espèces animales et végétales à travers le monde. Il est urgent d\'agir pour réduire votre empreinte carbone et protéger notre planète. <a href="https://www.mckinsey.com/capabilities/sustainability/our-insights/climate-risk-and-response-in-asia">En savoir plus</a></p>';
+        message += '<p>Les conséquences météorologiques associées à une empreinte carbone élevée peuvent inclure des changements drastiques des températures, des phénomènes météorologiques extrêmes fréquents, des sécheresses prolongées et des perturbations des écosystèmes.</p>';
+    }
+    return message;
 }
-return message;
-}
-</script>
+
+				
 	
+				// Fonction pour envoyer l'empreinte carbone par e-mail
+				function sendCarbonFootprintByEmail(email, empreinte) {
+		// Vérifier si l'adresse e-mail est valide
+		if (!isValidEmail(email)) {
+			alert("Veuillez saisir une adresse e-mail valide.");
+			return;
+		}
+	
+		// Calculer l'empreinte carbone en kg CO2eq par semaine
+		const empreinteCarboneKg = empreinte * 0.1234; // Remplacez 0.1234 par le facteur d'émission approprié pour votre calcul
+	
+		// Préparer le contenu du courrier électronique
+		let emailContent = '<h2>Votre Empreinte Carbone</h2>';
+		emailContent += '<p>Votre empreinte carbone est de ' + empreinteCarboneKg + ' kg CO2eq par semaine.</p>';
+		emailContent += consequencesEmpreinteCarbone(empreinte);
+	
+		// Envoyer l'e-mail (remplacez cette partie par le code réel pour envoyer un e-mail)
+		const recipient = "drizzymad17@gmail.com";
+		const subject = "Empreinte carbone";
+		const message = emailContent;
+	
+		sendEmail(recipient, subject, message);
+	
+		// Afficher un message de succès à l'utilisateur
+		resultsContainer.innerHTML += '<p>L\'empreinte carbone a été envoyée par e-mail avec succès.</p>';
+	}
+	
+	
+				// Fonction pour valider une adresse e-mail
+				function isValidEmail(email) {
+					// Vérifiez si l'adresse e-mail correspond à un motif de validation valide
+					const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+					return emailPattern.test(email);
+				}
+	
+				// Fonction pour envoyer un e-mail (exemple uniquement, à remplacer par votre propre méthode)
+				function sendEmail(recipient, subject, body) {
+		var params = {
+			name: recipient,
+			email: recipient,
+			message: body,
+		};
+	
+		const serviceID = "service_55yobgp";
+		const templateID = "template_l0ayi2g";
+	
+		const emailParams = {
+			...params,
+			headers: {
+				"Content-Type": "text/html"
+			}
+		};
+	
+		emailjs.send(serviceID, templateID, emailParams)
+			.then(res => {
+				document.getElementById("email").value = "";
+				console.log(res);
+				alert("Votre mail a été envoyé avec succès !");
+			})
+			.catch(err => console.log(err));
+	}
+			})();
+		</script>
 </body>
 </html>
